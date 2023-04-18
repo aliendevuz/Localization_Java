@@ -37,6 +37,12 @@ dependencies {
     //noinspection GradleDependency
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    def appcompat_version = "1.6.1"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
+
+    implementation 'br.com.simplepass:loading-button-android:2.2.0'
+
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
