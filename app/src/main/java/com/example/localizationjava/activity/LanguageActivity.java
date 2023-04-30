@@ -1,21 +1,24 @@
 package com.example.localizationjava.activity;
 
+import static com.example.localizationjava.MyApplication.localeManager;
+
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.os.LocaleListCompat;
 
 import com.example.localizationjava.R;
 import com.example.localizationjava.databinding.ActivityLanguageBinding;
+import com.example.localizationjava.manager.LocaleManager;
 
 import br.com.simplepass.loadingbutton.customViews.CircularProgressButton;
 
 public class LanguageActivity extends AppCompatActivity {
 
+    Context context = this;
     ActivityLanguageBinding binding;
 
     @Override
@@ -38,7 +41,8 @@ public class LanguageActivity extends AppCompatActivity {
             new Handler().postDelayed(() -> {
                 buttonChinese.revertAnimation();
                 buttonChinese.setBackgroundDrawable(getDrawable(R.drawable.circular_border_shape));
-                setLocale("zh");
+                localeManager.setNewLocale(context, LocaleManager.LANGUAGE_CHINESE);
+                finish();
             }, 400L);
         });
 
@@ -47,7 +51,8 @@ public class LanguageActivity extends AppCompatActivity {
             new Handler().postDelayed(() -> {
                 buttonKorean.revertAnimation();
                 buttonKorean.setBackgroundDrawable(getDrawable(R.drawable.circular_border_shape));
-                setLocale("ko");
+                localeManager.setNewLocale(context, LocaleManager.LANGUAGE_KOREAN);
+                finish();
             }, 400L);
         });
 
@@ -56,7 +61,8 @@ public class LanguageActivity extends AppCompatActivity {
             new Handler().postDelayed(() -> {
                 buttonJapanese.revertAnimation();
                 buttonJapanese.setBackgroundDrawable(getDrawable(R.drawable.circular_border_shape));
-                setLocale("ja");
+                localeManager.setNewLocale(context, LocaleManager.LANGUAGE_JAPAN);
+                finish();
             }, 400L);
         });
 
@@ -65,14 +71,9 @@ public class LanguageActivity extends AppCompatActivity {
             new Handler().postDelayed(() -> {
                 buttonUzbek.revertAnimation();
                 buttonUzbek.setBackgroundDrawable(getDrawable(R.drawable.circular_border_shape));
-                setLocale("uz");
+                localeManager.setNewLocale(context, LocaleManager.LANGUAGE_UZBEK);
+                finish();
             }, 400L);
         });
-    }
-
-    void setLocale(String lan) {
-        LocaleListCompat appLocale = LocaleListCompat.forLanguageTags(lan);
-        AppCompatDelegate.setApplicationLocales(appLocale);
-        finish();
     }
 }
