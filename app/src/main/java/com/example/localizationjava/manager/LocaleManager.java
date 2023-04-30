@@ -18,7 +18,7 @@ public class LocaleManager {
     public LocaleManager(Context context) {
         this.context = context;
         this.preferences = PreferencesManager.getInstance(context);
-        this.language = (preferences.loadData(LANGUAGE_KEY).equals("null")) ? LANGUAGE_UZBEK : preferences.loadData(LANGUAGE_KEY);
+        this.language = (preferences.loadString(LANGUAGE_KEY).equals("null")) ? LANGUAGE_UZBEK : preferences.loadString(LANGUAGE_KEY);
     }
 
     public static String LANGUAGE_CHINESE = "zh";
@@ -32,7 +32,7 @@ public class LocaleManager {
     }
 
     void persistLanguage(String language) {
-        preferences.saveData(LANGUAGE_KEY, language);
+        preferences.saveString(LANGUAGE_KEY, language);
     }
 
     public void setLocale(Context context) {

@@ -22,13 +22,53 @@ public class PreferencesManager {
         return preferencesManager;
     }
 
-    public void saveData(String key, String value) {
+    public void saveString(String key, String value) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, value);
         editor.apply();
     }
 
-    public String loadData(String key) {
+    public void saveLong(String key, Long value) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putLong(key, value);
+        editor.apply();
+    }
+
+    public void saveBoolean(String key, Boolean value) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(key, value);
+        editor.apply();
+    }
+
+    public void saveInteger(String key, Integer value) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(key, value);
+        editor.apply();
+    }
+
+    public void saveDouble(String key, Double value) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(key, value.toString());
+        editor.apply();
+    }
+
+    public String loadString(String key) {
         return preferences.getString(key, "null");
+    }
+
+    public Long loadLong(String key) {
+        return preferences.getLong(key, 0L);
+    }
+
+    public Boolean loadBoolean(String key) {
+        return preferences.getBoolean(key, false);
+    }
+
+    public Integer loadInteger(String key) {
+        return preferences.getInt(key, 0);
+    }
+
+    public Double loadDouble(String key) {
+        return Double.parseDouble(preferences.getString(key, "0.0"));
     }
 }

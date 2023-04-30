@@ -33,9 +33,9 @@ public class PreferenceActivity extends AppCompatActivity {
 
         buttonSave.setOnClickListener(v -> {
             String stringEmail = editTextEmail.getText().toString().trim();
-            PreferencesManager.getInstance(context).saveData("email", stringEmail);
+            PreferencesManager.getInstance(context).saveString("email", stringEmail);
         });
 
-        buttonLoad.setOnClickListener(v -> textViewEmail.setText(PreferencesManager.getInstance(context).loadData("email")));
+        buttonLoad.setOnClickListener(v -> textViewEmail.setText(PreferencesManager.getInstance(context).loadString("email")));
     }
 }
