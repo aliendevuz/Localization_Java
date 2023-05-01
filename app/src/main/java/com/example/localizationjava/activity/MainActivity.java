@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void openActivity() {
-        Intent intent = new Intent(context, SaveActivity.class);
+        Intent intent = new Intent(context, SignupActivity.class);
         startActivity(intent);
     }
 }

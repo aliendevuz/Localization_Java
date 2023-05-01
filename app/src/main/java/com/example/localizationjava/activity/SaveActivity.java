@@ -57,10 +57,10 @@ public class SaveActivity extends AppCompatActivity {
         });
 
         buttonLoadData.setOnClickListener(v -> {
-            String getData = "Long:\t\t\t\t" + preferences.loadLong(keyLong).toString() + "L\n"
-                    + "Boolean:\t\t" + preferences.loadBoolean(keyBoolean).toString() + "\n"
-                    + "Integer:\t\t" + preferences.loadInteger(keyInteger).toString() + "\n"
-                    + "Double:\t\t" + preferences.loadDouble(keyDouble).toString();
+            String getData = "Long:\t\t\t\t" + preferences.loadLong(keyLong).toString() + "L\n" +
+                    "Boolean:\t\t" + preferences.loadBoolean(keyBoolean).toString() + "\n" +
+                    "Integer:\t\t" + preferences.loadInteger(keyInteger).toString() + "\n" +
+                    "Double:\t\t" + preferences.loadDouble(keyDouble).toString();
             textViewData.setText(getData);
         });
     }
